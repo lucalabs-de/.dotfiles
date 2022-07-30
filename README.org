@@ -1,0 +1,32 @@
+* My .dotfiles
+** Packages
+On my Void system I use the following packages. Just install their dependencies/build tools as well.
+*** From XBPS
+~picom~, ~firefox~, ~emacs-gtk3~, ~conky~, ~zathura~, ~rofi~, ~sxhkd~, ~bspwm~
+*** From XBPS-SRC
+~spotify~, ~discord~
+*** From Source
+~eww~, ~xkeysnail~, ~spicetify~
+** Firefox Extensions
+*** Key Jump browser extension
+https://github.com/KennethSundqvist/key-jump-browser-extension
+** Additional Configuration
+*** Disable password prompts when running sudo
+Some commands, like ~xkeysnail~ and ~poweroff~ have to be run with ~sudo~, which is a problem if we want to use them in scripts. To avoid being prompted for a password when running these commands, we can add the following line to the ~sudoers~ file, using ~sudo visudo~:
+
+#+begin_src 
+<USER> ALL=NOPASSWD: <PATH TO COMMAND>
+#+end_src
+
+Alternatively, we can create a new file in ~/etc/sudoers.d~ and manage the commands there. To add the most common commands, you can use the following command
+
+#+begin_src bash
+cat <<EOT >> /etc/sudoers.d/nopasswds
+$USER $HOSTNAME = (root) NOPASSWD: /sbin/shutdown
+$USER $HOSTNAME = (root) NOPASSWD: /sbin/reboot
+$USER $HOSTNAME = (root) NOPASSWD: /sbin/wpa_supplicant
+$USER $HOSTNAME = (root) NOPASSWD: /sbin/poweroff
+$USER $HOSTNAME = (root) NOPASSWD: /bin/xkeysnail
+EOT
+#+end_src
+

@@ -1,4 +1,11 @@
-* My .dotfiles
+#+begin_verse
+________          __    _____.__.__                 
+\______ \   _____/  |__/ ____\__|  |   ____   ______
+ |    |  \ /  _ \   __\   __\|  |  | _/ __ \ /  ___/
+ |    `   (  <_> )  |  |  |  |  |  |_\  ___/ \___ \ 
+/_______  /\____/|__|  |__|  |__|____/\___  >____  >
+        \/                                \/     \/
+#+end_verse
 
 Welcome! These are the dotfiles that I use in my daily-driver Void system. The goal was to build a comfy, minimalist system that doesn't take me out of my workflow. Ever. For that reason I'm using Emacs Keybinds pretty much everywhere. If you don't need/want that, just don't install ~xkeysnail~.
 
@@ -18,6 +25,7 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 *** Screenshots
 Coming soon
 
+** Getting Started
 *** Packages
 On my Void system I use the following packages. Just install their dependencies/build tools as well.
 **** From XBPS
@@ -28,7 +36,7 @@ On my Void system I use the following packages. Just install their dependencies/
 ~eww~, ~xkeysnail~, ~spicetify~
 
 *** Firefox Extensions
-I'm using Kenneth Sundqvist's [[https://github.com/KennethSundqvist/key-jump-browser-extension][Key Jump]] extension to allow for keyboard-only navigation in Firefox
+I'm using Kenneth Sundqvist's [[https://github.com/KennethSundqvist/key-jump-browser-extension][Key Jump]] extension to allow for keyboard-only navigation in Firefox.
 
 *** Additional Configuration
 **** Disable password prompts when running sudo

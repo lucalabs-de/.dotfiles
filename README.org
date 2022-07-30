@@ -1,7 +1,7 @@
 * My .dotfiles
 
 Welcome! These are the dotfiles that I use in my daily-driver Void system. The goal was to build a comfy, minimalist system that doesn't take me out of my workflow. Ever. For that reason I'm using Emacs Keybinds pretty much everywhere. If you don't need/want that, just don't install ~xkeysnail~.
-
+* 
 *** System Information
 - *Distribution*: Void Linux
 - *Window Manager*: BSPWM
@@ -9,8 +9,9 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 - *Terminal*: Urxvt
 - *Widgets*: [[https://github.com/elkowar/eww][Eww]]
 - *Application Launcher*: [[Rofi][Rofi]]
-- *Music Player*: Spicetify
+- *Music Player*: Spicetify 
 
+*  
 *** Screenshots
 Coming soon
 

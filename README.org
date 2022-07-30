@@ -1,10 +1,12 @@
 #+begin_center
+#+begin_export ascii
 ________          __    _____.__.__                 
 \______ \   _____/  |__/ ____\__|  |   ____   ______
  |    |  \ /  _ \   __\   __\|  |  | _/ __ \ /  ___/
  |    `   (  <_> )  |  |  |  |  |  |_\  ___/ \___ \ 
 /_______  /\____/|__|  |__|  |__|____/\___  >____  >
         \/                                \/     \/
+#+end_export
 #+end_center
 
 Welcome! These are the dotfiles that I use in my daily-driver Void system. The goal was to build a comfy, minimalist system that doesn't take me out of my workflow. Ever. For that reason I'm using Emacs Keybinds pretty much everywhere. If you don't need/want that, just don't install ~xkeysnail~.

@@ -1,17 +1,33 @@
 * My .dotfiles
-** Packages
+
+Welcome! These are the dotfiles that I use in my daily-driver Void system. The goal was to build a comfy, minimalist system that doesn't take me out of my workflow. Ever. For that reason I'm using Emacs Keybinds pretty much everywhere. If you don't need/want that, just don't install ~xkeysnail~.
+
+*** System Information
+- *Distribution*: Void Linux
+- *Window Manager*: BSPWM
+- *Shell*: Bash
+- *Terminal*: Urxvt
+- *Widgets*: [[https://github.com/elkowar/eww][Eww]]
+- *Application Launcher*: [[Rofi][Rofi]]
+- *Music Player*: Spicetify
+
+*** Screenshots
+Coming soon
+
+*** Packages
 On my Void system I use the following packages. Just install their dependencies/build tools as well.
-*** From XBPS
+**** From XBPS
 ~picom~, ~firefox~, ~emacs-gtk3~, ~conky~, ~zathura~, ~rofi~, ~sxhkd~, ~bspwm~
-*** From XBPS-SRC
+**** From XBPS-SRC
 ~spotify~, ~discord~
-*** From Source
+**** From Source
 ~eww~, ~xkeysnail~, ~spicetify~
-** Firefox Extensions
-*** Key Jump browser extension
-https://github.com/KennethSundqvist/key-jump-browser-extension
-** Additional Configuration
-*** Disable password prompts when running sudo
+
+*** Firefox Extensions
+I'm using Kenneth Sundqvist's [[https://github.com/KennethSundqvist/key-jump-browser-extension][Key Jump]] extension to allow for keyboard-only navigation in Firefox
+
+*** Additional Configuration
+**** Disable password prompts when running sudo
 Some commands, like ~xkeysnail~ and ~poweroff~ have to be run with ~sudo~, which is a problem if we want to use them in scripts. To avoid being prompted for a password when running these commands, we can add the following line to the ~sudoers~ file, using ~sudo visudo~:
 
 #+begin_src 

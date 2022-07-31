@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# quick script to fill all template configs
+regex="(.+).template"
+
+find $HOME/.config $HOME/.mozilla -name "*.template" | while read -r file; do
+    [[ $file =~ $regex ]]
+
+    output=${BASH_REMATCH[1]}
+
+    . $HOME/.scripts/fill-template "$file" "$output"
+done

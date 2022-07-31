@@ -43,7 +43,7 @@ I'm using Kenneth Sundqvist's [[https://github.com/KennethSundqvist/key-jump-bro
 
 *** Additional Configuration
 **** Using template config files
-I wanted to be as flexible as possible when it comes to color schemes and dark/light themes, so I'm managing all colors via Xresources. Unfortunately, many programs use their own configuration files for color customization and don't care about Xresources. To get around that limitation, I'm using template versions of these config files which contain placeholders for Xresources colors. I then run a [[.scripts/setup-configs][script]] to fill those placeholders using the corresponding Xresources colors. Files starting with three ___underscores are templates.
+I wanted to be as flexible as possible when it comes to color schemes and dark/light themes, so I'm managing all colors via Xresources. Unfortunately, many programs use their own configuration files for color customization and don't care about Xresources. To get around that limitation, I'm using template versions of these config files which contain placeholders for Xresources colors. I then run a [[.scripts/setup-configs][script]] to fill those placeholders using the corresponding Xresources colors. Files starting with three =___underscores= are templates.
 **** Disable password prompts when running sudo
 Some commands, like ~xkeysnail~ and ~poweroff~ have to be run with ~sudo~, which is a problem if we want to use them in scripts. To avoid being prompted for a password when running these commands, we can add the following line to the ~sudoers~ file, using ~sudo visudo~:
 

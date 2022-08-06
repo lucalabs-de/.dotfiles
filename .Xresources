@@ -1,0 +1,31 @@
+! Colors can be found in ~/.themes
+
+! ----------------------------
+! Fonts
+! ----------------------------
+
+URxvt.font:		xft:Fantasque Sans Mono:regular:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:regular:size=13
+URxvt.imFont:		xft:Fantasque Sans Mono:italic:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=13
+URxvt.boldFont:		xft:Fantasque Sans Mono:bold:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold:size=13
+URxvt.italicFont:	xft:Fantasque Sans Mono:italic:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=13
+URxvt.boldItalicFont:	xft:Fantasque Sans Mono:bold italic:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold italic:size=13
+
+URxvt.letterSpace: 1
+URxvt.lineSpace:   0
+
+! ----------------------------
+! Cursor
+! ----------------------------
+Xcursor.theme: Bibata-Modern-Ice
+
+! ----------------------------
+! URxvt config
+! ----------------------------
+
+URxvt*scrollBar:	false
+URxvt*urgentOnBell:	true
+URxvt*iso14755:		false
+URxvt*cursorBlink:	true
+
+URxvt*internalBorder:	24
+

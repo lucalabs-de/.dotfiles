@@ -21,7 +21,8 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 - *Widgets*: [[https://github.com/elkowar/eww][Eww]], [[https://github.com/brndnmtthws/conky][Conky]]
 - *Application Launcher*: [[Rofi][Rofi]]
 - *Music Player*: Spicetify
-- *Notification Daemon*: TODO
+- *Notification Daemon*: End
+- *Cursor Theme*: [[https://github.com/ful1e5/Bibata_Cursor][Bibata Ice]]
 
 --------
  

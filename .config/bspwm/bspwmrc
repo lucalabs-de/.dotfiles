@@ -1,0 +1,77 @@
+#! /bin/bash
+
+THEME="$HOME/.themes/dark/colors"
+WALLPAPER="$HOME/.themes/chwallpaper.png"
+
+# Set colors
+xrdb ~/.Xresources
+xrdb -merge $THEME
+
+# Set wallpaper
+feh --bg-fill $WALLPAPER
+
+# fill config templates with theme colors
+. $HOME/.scripts/setup-configs
+
+# load theme colors
+FG=$(xrdb -query | grep 'foreground:'| awk '{print $NF}')
+BG=$(xrdb -query | grep 'background:'| awk '{print $NF}')
+BGVIS=$(xrdb -query | grep 'backgroundVisual:'| awk '{print $NF}')
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# bsp config
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         0
+bspc config window_gap           8
+bspc config top_padding          12
+bspc config right_padding        12
+bspc config left_padding         12
+bspc config bottom_padding       12
+
+bspc config split_ratio          0.56
+bspc config borderless_monocle   false
+bspc config gapless_monocle      false
+
+bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors  true
+
+# window resizing
+bspc config pointer_modifier mod4
+bspc config pointer_action1  move
+bspc config pointer_action2  resize_corner
+
+bspc rule -a Zathura         state=tiled
+bspc rule -a Emacs           state=tiled
+bspc rule -a feh             state=floating
+bspc rule -a Firefox:Toolkit state=floating #picture-in-picture
+
+# mark floating windows for picom
+. $HOME/.scripts/mark-floating-windows &
+
+## Autostart ##
+# setup keymap
+setxkbmap -layout de 
+xmodmap $HOME/.Xmodmap
+
+# change default cursor
+xsetroot -cursor_name left_ptr
+
+# set backlight
+xbacklight -set 50
+
+# picom
+picom -b --config "$HOME/.config/picom/picom.conf" &
+
+# widgets
+eww open indicator &
+
+sleep 1
+
+# Try to connect to external screen (also starts widgets on that screen)
+. $HOME/.scripts/screen-connect 
+
+# start conky on main screen
+conky --config "$HOME/.config/conky/clock.conf" -m 0
+

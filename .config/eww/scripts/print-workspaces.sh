@@ -4,7 +4,7 @@ SYMBOL_WORKSPACE_EMPTY="○"
 SYMBOL_WORKSPACE_OCCUPIED="◒"
 SYMBOL_WORKSPACE_FOCUSED="◉"
 
-bspc subscribe desktop_focus | while read -r event; do
+bspc subscribe desktop_focus node_transfer | while read -r event; do
     occupied_workspaces="$(bspc query -D -d .occupied --names)"
     highest_occupied_workspace=$(echo "$occupied_workspaces" | sort -nr | head -n1)
     current_workspace=$(bspc query -D -d .focused --names)

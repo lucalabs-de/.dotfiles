@@ -13,8 +13,10 @@ define_keymap(re.compile("Firefox|Google-chrome"), {
     K("C-M-k"): K("C-Shift-TAB"),
     # Type C-j to focus to the content
     K("C-j"): K("C-f6"),
-    # very naive "Edit in editor" feature (just an example)
-    K("C-o"): [K("C-a"), K("C-c"), launch(["gedit"]), sleep(0.5), K("C-v")]
+    K("C-x"): {
+        # C-x C-w to kill current tab
+        K("C-w"): K("C-w")
+    }
 }, "Firefox and Chrome")
 
 # Emacs-like keybindings in non-Emacs applications

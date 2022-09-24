@@ -1,7 +1,20 @@
 #! /bin/bash
 
-THEME="$HOME/.themes/dark/colors"
-WALLPAPER="$HOME/.themes/chwallpaper.png"
+TIME_IN_SECS=$(( $(date +%s) - $(date -d '00:00:00' +%s) ))
+NIGHT_TIME=$(cat $HOME/.themes/NIGHT_THEME_TIME)
+DAY_TIME=$(cat $HOME/.themes/DAY_THEME_TIME)
+
+echo $NIGHT_TIME
+echo $DAY_TIME
+
+if [[ $TIME_IN_SECS -gt $NIGHT_TIME ]] || [[ $TIME_IN_SECS -lt $DAY_TIME ]]
+then
+    THEME="$HOME/.themes/night/colors"
+    WALLPAPER="$HOME/.themes/chwallpaper-night.png"
+else
+    THEME="$HOME/.themes/day/colors"
+    WALLPAPER="$HOME/.themes/chwallpaper.png"
+fi
 
 # Set colors
 xrdb ~/.Xresources
@@ -25,10 +38,10 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config border_width         0
 bspc config window_gap           8
-bspc config top_padding          12
-bspc config right_padding        12
-bspc config left_padding         12
-bspc config bottom_padding       12
+bspc config top_padding          10
+bspc config right_padding        10
+bspc config left_padding         10
+bspc config bottom_padding       10
 
 bspc config split_ratio          0.56
 bspc config borderless_monocle   false
@@ -67,11 +80,14 @@ picom -b --config "$HOME/.config/picom/picom.conf" &
 # widgets
 eww open indicator &
 
-sleep 1
-
-# Try to connect to external screen (also starts widgets on that screen)
-. $HOME/.scripts/screen-connect 
+# battery warning
+. $HOME/.scripts/battery &
 
 # start conky on main screen
 conky --config "$HOME/.config/conky/clock.conf" -m 0
+
+sleep 1
+
+# Try to connect to external screen (also starts widgets on that screen)
+. $HOME/.scripts/screen-connect
 

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 TIME_IN_SECS=$(( $(date +%s) - $(date -d '00:00:00' +%s) ))
 NIGHT_TIME=$(cat $HOME/.themes/NIGHT_THEME_TIME)
@@ -15,6 +15,8 @@ else
     THEME="$HOME/.themes/day/colors"
     WALLPAPER="$HOME/.themes/chwallpaper.png"
 fi
+
+cp $WALLPAPER "$HOME/.themes/wallpaper.png"
 
 # Set colors
 xrdb ~/.Xresources
@@ -65,7 +67,7 @@ bspc rule -a Firefox:Toolkit state=floating #picture-in-picture
 
 ## Autostart ##
 # setup keymap
-setxkbmap -layout de 
+setxkbmap -layout de
 xmodmap $HOME/.Xmodmap
 
 # change default cursor
@@ -84,10 +86,9 @@ eww open indicator &
 . $HOME/.scripts/battery &
 
 # start conky on main screen
-conky --config "$HOME/.config/conky/clock.conf" -m 0
+conky --config "$HOME/.config/conky/clock.conf" -m 0 &
 
 sleep 1
 
 # Try to connect to external screen (also starts widgets on that screen)
 . $HOME/.scripts/screen-connect
-

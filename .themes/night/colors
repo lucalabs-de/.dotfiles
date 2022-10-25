@@ -1,0 +1,63 @@
+! Everforest Dark (Hard) !
+
+! backgrounds
+#define forest0 #2b3339
+#define forest1 #323c41
+#define forest2 #3a454a
+#define forest3 #445055
+#define forest4 #503946
+#define forest5 #4e3e43
+#define forest6 #404d44
+#define forest7 #394f5a
+#define forest8 #4a4940
+
+! foregrounds
+#define forest9 #d3c6aa
+#define forest10 #e67e80
+#define forest11 #e69875
+#define forest12 #dbbc7f
+#define forest13 #a7c080
+#define forest14 #83c092
+#define forest15 #7fbbb3
+#define forest16 #d699b6
+#define forest17 #7a8478
+#define forest18 #9da9a0
+
+! special
+*.foreground:           forest9
+*.background:           forest0
+*.highlight:            forest6
+*.backgroundVisual:     forest4
+*.cursorColor:          forest9
+
+! black
+*.color0:       forest0
+*.color8:       forest2
+
+! red
+*.color1:	forest10
+*.color9:	forest10
+
+! green
+*.color2:       forest13
+*.color10:      forest13
+
+! yellow
+*.color3:	forest12
+*.color11:	forest12
+
+! blue
+*.color4:       forest15
+*.color12:      forest15
+
+! magenta
+*.color5:       forest16
+*.color13:      forest16
+
+! cyan
+*.color6:       forest14
+*.color14:      forest14
+
+! white
+*.color7:       forest9
+*.color15:      forest9

@@ -103,6 +103,9 @@
 ;; Window Management
 (use-package ace-window
   :ensure t
+  :init
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-background nil)
   :bind ("M-o" . ace-window))
 
 ;; Discovery

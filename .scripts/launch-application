@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Start Application Launcher
+
+rofi -show drun \
+     -modi run,drun,window \
+     -show-icons \
+     -display-drun "Launch" \
+     -monitor "-1" \
+     -location 0 \
+     -theme calvin
+
+
+
+
+
+
+

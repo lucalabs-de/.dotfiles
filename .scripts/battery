@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true; do
+    sleep 10
+    if [ $(cat /sys/class/power_supply/BAT1/capacity) -lt 10 ] && [[ $(cat /sys/class/power_supply/BAT1/status) == "Discharging" ]]; then
+        if [ -r "$HOME/.dbus/Xdbus" ]; then
+	    . "$HOME/.dbus/Xdbus"
+        fi
+        /bin/notify-send --hint=string:x-dunst-stack-tag:battery -u critical "Battery" "Running low on battery :("
+    fi
+done

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# This script is mainly written for a second screen that's connected to a laptop, YMMV
+
+# the screen we want to connect to (check xrandr for this information)
+NEW_SCREEN="DP-1"
+RESOLUTION="3440x1440_48.00"
+
+OLD_SCREEN="eDP-1"
+
+if ! [ "$(xrandr -q | grep "^$NEW_SCREEN connected")" ]; then
+    echo "$NEW_SCREEN not connected"
+    exit 1
+fi
+
+# connect screen
+xrandr --output "$NEW_SCREEN" --right-of "$OLD_SCREEN" --mode "$RESOLUTION"
+
+sleep 1
+
+# fix wallpaper
+feh --bg-fill "$HOME/.themes/wallpaper.png"
+
+# fix bspwm desktops
+bspc monitor "$OLD_SCREEN" -d 1 2 3 4 5
+bspc monitor "$NEW_SCREEN" -d 6 7 8 9 10
+
+# open eww widgets on new screen
+eww open indicator-widescreen # you probably need to tweak this widget if your second monitor is not 3440x1440 (2560x1440 might be fine)
+
+# start conky widgets if necessary
+clockpid=$(cat /tmp/conkyclock.pid 2> /dev/null || echo "1") 
+
+if [ "$(ps -o comm= -p "$clockpid")" = "conky" ]; then
+    kill -9 "$clockpid"
+fi
+
+conky --config "$HOME/.config/conky/clock.conf" -m 1 60 &>/dev/null & echo $! > /tmp/conkyclock.pid 
+disown $(cat /tmp/conkyclock.pid)
+
+echo "Connected to $NEW_SCREEN"

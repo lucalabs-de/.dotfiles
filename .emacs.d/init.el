@@ -128,7 +128,7 @@
   (setq lsp-headerline-breadcrumb-enable nil)
   (setq lsp-auto-configure t))
 
-;;; Typescript
+;;; TypeScript
 (use-package typescript-mode
   :ensure t
   :config
@@ -136,7 +136,7 @@
   :mode "\\.tsx?\\'"
   :hook (typescript-mode . lsp-deferred))
 
-;;; Javascript
+;;; JavaScript
 (add-hook 'js-mode-hook 'lsp-deferred)
 (setq-default js-indent-level 2)
 (setq-default indent-tabs-mode nil)
@@ -159,6 +159,21 @@
   (setq kotlin-tab-width 2)
   :hook (kotlin-mode . lsp-deferred))
 
+; Unfortunately no package for this yet, so this has to do
+(defun ktlint-fix-file ()
+  (interactive)
+  (shell-command (concat "ktlint -F " (file-name-nondirectory (buffer-file-name))))) ; requires ktlint to be installed and in path
+
+(defun ktlint-fix-file-and-revert ()
+  (interactive)
+  (message (concat "ktlint fixing file " (file-name-nondirectory (buffer-file-name))))
+  (ktlint-fix-file)
+  (revert-buffer t t))
+
+(add-hook 'kotlin-mode-hook
+	  (lambda ()
+	    (add-hook 'after-save-hook 'ktlint-fix-file-and-revert nil 'local)))
+
 ;;; Groovy (mainly for gradle files)
 (use-package groovy-mode
   :ensure t
@@ -180,13 +195,15 @@
 (use-package rust-mode
   :ensure t
   :hook (rust-mode . lsp-deferred))
-;; (use-package rustic
-;;   :ensure t)
 
 ;;; C
 (use-package ccls
   :ensure t
   :hook ((c-mode c++-mode objc-mode cuda-mode) . lsp-deferred))
+
+;;; Python
+(add-hook 'python-mode-hook #'lsp-deferred)
+(setq lsp-pylsp-plugins-pydocstyle-enabled nil)
 
 ;;; Matlab
 (use-package matlab
@@ -207,22 +224,6 @@
   :hook (js-mode . eslintd-fix-mode)
         (typescript-mode . eslintd-fix-mode)
         (web-mode . eslintd-fix-mode))
-
-;;; Kotlin
-; Unfortunately no package for this yet, so this has to do
-(defun ktlint-fix-file ()
-  (interactive)
-  (shell-command (concat "ktlint -F " (file-name-nondirectory (buffer-file-name))))) ; requires ktlint to be installed and in path
-
-(defun ktlint-fix-file-and-revert ()
-  (interactive)
-  (message (concat "ktlint fixing file " (file-name-nondirectory (buffer-file-name))))
-  (ktlint-fix-file)
-  (revert-buffer t t))
-
-(add-hook 'kotlin-mode-hook
-	  (lambda ()
-	    (add-hook 'after-save-hook 'ktlint-fix-file-and-revert nil 'local)))
 
 ;; Frameworks & SDKs
 ;;; Android

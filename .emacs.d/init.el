@@ -147,7 +147,8 @@
   :mode (("\\.[jt]sx\\'" . web-mode)
 	 ("\\.html\\'" . web-mode))
   :hook (web-mode . lsp-deferred)
-  :commands web-mode)
+  :commands web-mode
+  :config (setq web-mode-enable-auto-quoting nil))
 
 ;;; Kotlin
 (use-package kotlin-mode
@@ -214,6 +215,12 @@
    '("\\.m\\'" . matlab-mode))
   (setq matlab-indent-function t)
   (setq matlab-shell-command "matlab"))
+
+;;; Terraform (without LSP)
+(use-package terraform-mode
+  :ensure t
+  :config
+  (setq terraform-indent-level 2))
 
 ;; Linting
 ;;; Java- and Typescript

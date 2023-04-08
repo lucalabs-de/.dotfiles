@@ -9,9 +9,14 @@
 TEMPLATE_FILE=$1
 OUTPUT_FILE=$2
 
+get_rrgb_from_x () {
+    local xkey=$1
+    rrgb=$(xrdb -query | grep "$xkey:"| awk '{print substr($NF, 2)}')
+}
+
 get_rgb_from_x () {
     local xkey=$1
-    rgb=$(xrdb -query | grep "$xkey:"| awk '{print $NF}') 
+    rgb=$(xrdb -query | grep "$xkey:"| awk '{print $NF}')
 }
 
 get_tc_from_x () {
@@ -32,7 +37,7 @@ get_ansi_from_x () {
 	    return 0
 	fi
     done
-    
+
     get_colors_from_rgb "$irgb"
 
     local q2c=(0 95 135 175 215 255)
@@ -98,11 +103,12 @@ color_dist_sq () {
 # create empty output file
 echo "" > $OUTPUT_FILE
 
+rrgb_regex="#RRGB:(\w+)#"
 rgb_regex="#RGB:(\w+)#"
 tc_regex="#TC:(\w+) (.*) #CT"
 ansi_regex="#256(\+([0-9]+))?:(\w+)#"
 
-control_regex="#\w{2,3}(\+[0-9]+)?:\w+"
+control_regex="#\w{2,4}(\+[0-9]+)?:\w+"
 
 cat $TEMPLATE_FILE | while read -r line; do
     # skip if the current line does not contain template strings
@@ -111,10 +117,22 @@ cat $TEMPLATE_FILE | while read -r line; do
 	continue
     fi
 
+    ## replace with reduced rgb (no "#" at the start, template strings of form #RRGB:<key>#)
+    while read match; do
+	[ -z $match ] && continue
+
+	[[ $match =~ $rrgb_regex ]]
+	key=${BASH_REMATCH[1]}
+
+	get_rrgb_from_x "$key"
+
+	line=$(echo "$line" | sed "s/$match/$rrgb/g")
+    done <<< $(echo "$line" | grep -Po "$rrgb_regex")
+
     ## replace with rgb (template strings of form #RGB:<key>#)
     while read match; do
 	[ -z $match ] && continue
-	
+
 	[[ $match =~ $rgb_regex ]]
 	key=${BASH_REMATCH[1]}
 
@@ -126,7 +144,7 @@ cat $TEMPLATE_FILE | while read -r line; do
     ## replace with TrueColor escape codes (template strings of form #TC:<key> [text] #CT)
     while read match; do
 	[ -z $match ] && continue
-	
+
 	[[ $match =~ $tc_regex ]]
 	key=${BASH_REMATCH[1]}
 	text=${BASH_REMATCH[2]}
@@ -139,7 +157,7 @@ cat $TEMPLATE_FILE | while read -r line; do
     ## replace with closest 256-color equivalent (#256:<key>#)
     while read match; do
 	[ -z $match ] && continue
-	
+
 	[[ $match =~ $ansi_regex ]]
 	offset=${BASH_REMATCH[2]}
 	key=${BASH_REMATCH[3]}

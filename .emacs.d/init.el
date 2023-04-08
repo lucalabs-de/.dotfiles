@@ -116,6 +116,10 @@
   :config
   (setq which-key-idle-delay 1))
 
+;; Display Hex-Colors
+(use-package rainbow-mode
+  :ensure t)
+
 ;; Language Support
 (use-package lsp-mode
   :ensure t

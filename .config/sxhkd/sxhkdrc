@@ -55,8 +55,8 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{j,k,l,;,odiaeresis,ö}
-	bspc node -{f,s} {west,south,north,east,east,east}
+super + {_,shift + }{j,k,l,odiaeresis}
+	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -141,13 +141,16 @@ super + F10
 #
 
 # increase brightness
-super + F2
-      sudo light -A 5
+super + F6
+      xbacklight -inc 5
 
 # decrease brightness
-super + F1
-      sudo light -U 5
+super + F5
+      xbacklight -dec 5
 
 # language
 super + shift + {d,r,д,р}
-      setxkbmap -layout de -variant {basic,ru,basic,ru}
+      setxkbmap -layout de -variant {basic,ru-recom,basic,ru-recom}
+
+super + alt + t
+      . $HOME/.scripts/choose-theme

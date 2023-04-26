@@ -106,7 +106,7 @@
   :init
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (setq aw-background nil)
-  :bind ("M-o" . ace-window))
+  :bind ("C-o" . ace-window))
 
 ;; Discovery
 (use-package which-key

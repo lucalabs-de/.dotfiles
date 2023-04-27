@@ -17,7 +17,7 @@ URxvt.lineSpace:   0
 ! Cursor
 ! ----------------------------
 ! Xcursor.theme: Bibata-Modern-Ice
-Xcursor.size: 16
+Xcursor.size: 20
 
 ! ----------------------------
 ! URxvt config

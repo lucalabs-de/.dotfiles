@@ -4,11 +4,11 @@
 ! Fonts
 ! ----------------------------
 
-URxvt.font:		xft:Fantasque Sans Mono:regular:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:regular:size=13
-URxvt.imFont:		xft:Fantasque Sans Mono:italic:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=13
-URxvt.boldFont:		xft:Fantasque Sans Mono:bold:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold:size=13
-URxvt.italicFont:	xft:Fantasque Sans Mono:italic:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=13
-URxvt.boldItalicFont:	xft:Fantasque Sans Mono:bold italic:size=13,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold italic:size=13
+URxvt.font:		xft:Fantasque Sans Mono:regular:size=20,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:regular:size=20
+URxvt.imFont:		xft:Fantasque Sans Mono:italic:size=20,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=20
+URxvt.boldFont:		xft:Fantasque Sans Mono:bold:size=20,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold:size=20
+URxvt.italicFont:	xft:Fantasque Sans Mono:italic:size=20,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=20
+URxvt.boldItalicFont:	xft:Fantasque Sans Mono:bold italic:size=20,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold italic:size=20
 
 URxvt.letterSpace: 1
 URxvt.lineSpace:   0
@@ -16,12 +16,14 @@ URxvt.lineSpace:   0
 ! ----------------------------
 ! Cursor
 ! ----------------------------
-Xcursor.theme: Bibata-Modern-Ice
+! Xcursor.theme: Bibata-Modern-Ice
 Xcursor.size: 16
 
 ! ----------------------------
 ! URxvt config
 ! ----------------------------
+
+URxvt.perl-ext-common: default
 
 URxvt*scrollBar:	false
 URxvt*urgentOnBell:	true
@@ -30,3 +32,7 @@ URxvt*cursorBlink:	true
 
 URxvt*internalBorder:	24
 
+URxvt.keysym.Control-y:         eval:paste_clipboard
+URxvt.keysym.Meta-w:            eval:selection_to_clipboard
+URxvt.keysym.Control-Meta-c:    builtin-string:
+URxvt.keysym.Control-Meta-v:    builtin-string:

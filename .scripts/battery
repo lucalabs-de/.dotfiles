@@ -2,7 +2,7 @@
 
 while true; do
     sleep 10
-    if [ $(cat /sys/class/power_supply/BAT1/capacity) -lt 10 ] && [[ $(cat /sys/class/power_supply/BAT1/status) == "Discharging" ]]; then
+    if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ] && [[ $(cat /sys/class/power_supply/BAT1/status) == "Discharging" ]]; then
         if [ -r "$HOME/.dbus/Xdbus" ]; then
 	    . "$HOME/.dbus/Xdbus"
         fi

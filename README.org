@@ -1,11 +1,11 @@
 #+begin_src text
-               ____           _      _          
-              (|   \         | | o  | |         
-               |    | __ _|_ | |    | |  _   ,  
+               ____           _      _
+              (|   \         | | o  | |
+               |    | __ _|_ | |    | |  _   ,
               _|    |/  \_|  |/  |  |/  |/  / \_
-             (/\___/ \__/ |_/|__/|_/|__/|__/ \/ 
-                             |\                 
-                             |/                
+             (/\___/ \__/ |_/|__/|_/|__/|__/ \/
+                             |\
+                             |/
 #+end_src
 
 
@@ -25,7 +25,7 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 - *Cursor Theme*: [[https://github.com/ful1e5/Bibata_Cursor][Bibata Ice]]
 
 --------
- 
+
 *** Screenshots
 Coming soon
 
@@ -48,20 +48,19 @@ I wanted to be as flexible as possible when it comes to color schemes and dark/l
 **** Disable password prompts when running sudo
 Some commands, like ~xkeysnail~ and ~poweroff~ have to be run with ~sudo~, which is a problem if we want to use them in scripts. To avoid being prompted for a password when running these commands, we can add the following line to the ~sudoers~ file, using ~sudo visudo~:
 
-#+begin_src 
+#+begin_src
 <USER> ALL=NOPASSWD: <PATH TO COMMAND>
 #+end_src
 
 Alternatively, we can create a new file in ~/etc/sudoers.d~ and manage the commands there. To add the most common commands, you can use the following command
 
 #+begin_src bash
-cat <<EOT >> /etc/sudoers.d/nopasswds
-$USER $HOSTNAME = (root) NOPASSWD: /sbin/shutdown
-$USER $HOSTNAME = (root) NOPASSWD: /sbin/reboot
-$USER $HOSTNAME = (root) NOPASSWD: /sbin/wpa_supplicant
-$USER $HOSTNAME = (root) NOPASSWD: /sbin/poweroff
-$USER $HOSTNAME = (root) NOPASSWD: /bin/xkeysnail
-EOT
+  cat <<EOT >> /etc/sudoers.d/nopasswds
+  $USER $HOSTNAME = (root) NOPASSWD: /sbin/shutdown
+  $USER $HOSTNAME = (root) NOPASSWD: /sbin/reboot
+  $USER $HOSTNAME = (root) NOPASSWD: /sbin/wpa_supplicant
+  $USER $HOSTNAME = (root) NOPASSWD: /sbin/poweroff
+  $USER $HOSTNAME = (root) NOPASSWD: /bin/xkeysnail
+  $USER $HOSTNAME = (root) NOPASSWD: /bin/light
+  EOT
 #+end_src
-
-

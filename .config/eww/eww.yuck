@@ -1,4 +1,4 @@
-;; Variables 
+;; Variables
 
 (deflisten workspace-string :initial "◉"
            `scripts/print-workspaces.sh`)
@@ -14,7 +14,7 @@
                                :height "20px"
                                :anchor "top left")
            :stacking "bg"
-           :reserve (struts :distance "40px" :side "top")    
+           :reserve (struts :distance "50px" :side "top")
            :windowtype "desktop"
            :wm-ignore false
   (workspace-indicator))
@@ -27,7 +27,7 @@
                                :height "20px"
                                :anchor "top left")
            :stacking "bg"
-           :reserve (struts :distance "40px" :side "top")    
+           :reserve (struts :distance "40px" :side "top")
            :windowtype "desktop"
            :wm-ignore false
   (workspace-indicator-widescreen))
@@ -36,8 +36,8 @@
 
 (defwidget workspace-indicator []
            (box :orientation "horizontal"
-                :class "indicator-box"    
-                      (label 
+                :class "indicator-box"
+                      (label
                              :yalign 1
                              :xalign 0
                              :class "indicator"
@@ -45,11 +45,9 @@
 
 (defwidget workspace-indicator-widescreen []
            (box :orientation "horizontal"
-                :class "indicator-box-widescreen"    
-                      (label 
+                :class "indicator-box-widescreen"
+                      (label
                              :yalign 1
                              :xalign 0
                              :class "indicator-widescreen"
                              :text "${workspace-string}")))
-
-

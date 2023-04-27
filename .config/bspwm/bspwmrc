@@ -1,29 +1,11 @@
 #!/bin/bash
 
-TIME_IN_SECS=$(( $(date +%s) - $(date -d '00:00:00' +%s) ))
-NIGHT_TIME=$(cat $HOME/.themes/NIGHT_THEME_TIME)
-DAY_TIME=$(cat $HOME/.themes/DAY_THEME_TIME)
-
-echo $NIGHT_TIME
-echo $DAY_TIME
-
-if [[ $TIME_IN_SECS -gt $NIGHT_TIME ]] || [[ $TIME_IN_SECS -lt $DAY_TIME ]]
-then
-    THEME="$HOME/.themes/night/colors"
-    WALLPAPER="$HOME/.themes/chwallpaper-night.png"
-else
-    THEME="$HOME/.themes/day/colors"
-    WALLPAPER="$HOME/.themes/chwallpaper.png"
-fi
-
-cp $WALLPAPER "$HOME/.themes/wallpaper.png"
+# set wallpaper
+. $HOME/.scripts/refresh-theme
 
 # Set colors
 xrdb ~/.Xresources
 xrdb -merge $THEME
-
-# Set wallpaper
-feh --bg-fill $WALLPAPER
 
 # fill config templates with theme colors
 . $HOME/.scripts/setup-configs

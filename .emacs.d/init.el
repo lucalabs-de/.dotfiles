@@ -41,7 +41,7 @@
 ;; setup fonts
 (set-face-attribute 'default nil
 		    :family "FantasqueSansMonoNerdFontAAE Nerd Font Mono" ; nerd-patched Fantasque Sans Mono
-		    :height 160
+		    :height 250
 		    :weight 'normal
 		    :width 'normal)
 
@@ -381,25 +381,13 @@
 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
 		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
 		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-(put 'downcase-region 'disabled nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auth-source-save-behavior nil)
  '(package-selected-packages
-   '(lsp-haskell yaml-mode which-key web-mode use-package typescript-mode swiper projectile org-bullets org nord-theme magit lsp-mode load-env-vars langtool kotlin-mode gruvbox-theme groovy-mode flycheck-vale flycheck-grammarly eslintd-fix elogcat diminish dashboard company auctex android-env))
- '(warning-suppress-types
-   '((comp)
-     (comp)
-     (comp)
-     (comp)
-     (comp)
-     (comp)
-     (comp)
-     (comp)
-     (comp))))
+   '(org yaml-mode which-key web-mode use-package typescript-mode terraform-mode swiper rust-mode rainbow-mode projectile org-bullets matlab-mode magit lsp-haskell kotlin-mode hl-todo groovy-mode eslintd-fix elogcat diminish dashboard company ccls auctex android-env ag ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

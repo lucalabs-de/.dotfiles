@@ -74,7 +74,7 @@ xmodmap $HOME/.Xmodmap
 xsetroot -cursor_name left_ptr
 
 # set backlight
-xbacklight -set 50
+sudo light -S 50
 
 # picom
 picom -b --config "$HOME/.config/picom/picom.conf" &

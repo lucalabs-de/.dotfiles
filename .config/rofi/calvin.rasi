@@ -1,5 +1,5 @@
 * {
-    font:   "Fantasque Sans Mono 12";
+    font:   "Fantasque Sans Mono 20";
 
     forest0: #2b3339;
     forest1: #323c41;
@@ -37,7 +37,7 @@ window {
     border-color:       @highlight-color;
 
     location:   center;
-    width:      480px;
+    width:      870px;
     y-offset:   -120px;
     border:     1px;
 }

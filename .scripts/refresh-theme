@@ -16,7 +16,4 @@ fi
 
 cp $WALLPAPER "$HOME/.themes/wallpaper.png"
 
-THEME="$HOME/.themes/night/colors"
-WALLPAPER="$HOME/.themes/chwallpaper-night.png"
-
 feh --bg-fill $WALLPAPER

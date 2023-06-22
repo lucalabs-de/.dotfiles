@@ -9,3 +9,10 @@ rofi -show drun \
      -monitor "-1" \
      -location 0 \
      -theme calvin
+
+
+
+
+
+
+

@@ -42,8 +42,6 @@ On my Void system I use the following packages. Just install their dependencies/
 I'm using my own [[https://github.com/lucalabs-de/key-jump-browser-extension][fork]] of Kenneth Sundqvist's [[https://github.com/KennethSundqvist/key-jump-browser-extension][Key Jump]] extension to allow for keyboard-only navigation in Firefox.
 
 *** Additional Configuration
-**** Font and Interface Size
-I'm using these dotfiles on a high DPI screen, so fonts and UI elements might become very large on low DPI screens. If that's the case you can try to set a custom scale using ~xrandr~ or simply adapt the font size in the corresponding config files.
 **** Using template config files
 I wanted to be as flexible as possible when it comes to color schemes and dark/light themes, so I'm managing all colors via Xresources. Unfortunately, many programs use their own configuration files for color customization and don't care about Xresources. To get around that limitation, I'm using template versions of these config files which contain placeholders for Xresources colors. I then run a [[.scripts/setup-configs][script]] to fill those placeholders using the corresponding Xresources colors. Files starting with three ___underscores are templates.
 **** Disable password prompts when running sudo

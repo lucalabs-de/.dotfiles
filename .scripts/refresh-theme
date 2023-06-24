@@ -4,16 +4,18 @@ TIME_IN_SECS=$(( $(date +%s) - $(date -d '00:00:00' +%s) ))
 NIGHT_TIME=$(cat $HOME/.themes/NIGHT_THEME_TIME)
 DAY_TIME=$(cat $HOME/.themes/DAY_THEME_TIME)
 
+FILE_TYPE="jpg"
+
 if [[ $TIME_IN_SECS -gt $NIGHT_TIME ]] || [[ $TIME_IN_SECS -lt $DAY_TIME ]]
 then
     THEME="$HOME/.themes/night/colors"
-    WALLPAPER="$HOME/.themes/wallpaper-night.png"
+    WALLPAPER="$HOME/.themes/wallpaper-night.$FILE_TYPE"
     /bin/notify-send --hint=string:x-dunst-stack-tag:battery -u low "Night Mode" "It's getting late..."
 else
     THEME="$HOME/.themes/day/colors"
-    WALLPAPER="$HOME/.themes/wallpaper-day.png"
+    WALLPAPER="$HOME/.themes/wallpaper-day.$FILE_TYPE"
 fi
 
-cp $WALLPAPER "$HOME/.themes/wallpaper.png"
+cp $WALLPAPER "$HOME/.themes/wallpaper.$FILE_TYPE"
 
 feh --bg-fill $WALLPAPER

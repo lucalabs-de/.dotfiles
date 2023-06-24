@@ -5,7 +5,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("org" .  "http://orgmode.org/elpa/") t)
+;(add-to-list 'package-archives '("org" .  "http://orgmode.org/elpa/") t)
 
 ;; install use package
 (unless (package-installed-p 'use-package)
@@ -41,7 +41,7 @@
 ;; setup fonts
 (set-face-attribute 'default nil
 		    :family "FantasqueSansMonoNerdFontAAE Nerd Font Mono" ; nerd-patched Fantasque Sans Mono
-		    :height 250
+		    :height 160
 		    :weight 'normal
 		    :width 'normal)
 
@@ -158,8 +158,8 @@
 (use-package kotlin-mode
   :ensure t
   :init
-  (setenv "ANDROID_HOME" "/home/lucalabs/android")
-  (setenv "ANDROID_SDK_ROOT" "/home/lucalabs/android")
+  (setenv "ANDROID_HOME" "/opt/android")
+  (setenv "ANDROID_SDK_ROOT" "/opt/android")
   :config
   (setq kotlin-tab-width 2)
   :hook (kotlin-mode . lsp-deferred))
@@ -231,7 +231,7 @@
 (use-package eslintd-fix
   :ensure t
   :init
-  (setq eslintd-fix-executable "/home/lucalabs/n/bin/eslint_d")
+  (setq eslintd-fix-executable "/usr/local/bin/eslint_d")
   :hook (js-mode . eslintd-fix-mode)
         (typescript-mode . eslintd-fix-mode)
         (web-mode . eslintd-fix-mode))
@@ -239,9 +239,6 @@
 ;; Frameworks & SDKs
 ;;; Android
 (use-package android-env
-  :ensure t)
-
-(use-package elogcat
   :ensure t)
 
 ;; Autocomplete
@@ -349,8 +346,7 @@
   (setq org-format-latex-options
 	(plist-put org-format-latex-options :scale 2.0))
   (setq org-agenda-files (list "~/org/work.org"
-                             "~/org/home.org"))
-  (setup-orgmode-export))
+                             "~/org/home.org")))
 
 (use-package org-bullets
   :ensure t
@@ -359,28 +355,6 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-;; Orgmode TeX outlining
-(defun setup-orgmode-export ()
-  (setq org-latex-default-class "org-article")
-  (setq org-export-with-toc nil)
-  (setq org-export-with-creator nil)
-  (setq org-export-with-author nil)
-  (setq org-export-with-title nil)
-  (setq org-export-with-date nil)
-  (setq org-latex-with-hyperref nil))
-
-(with-eval-after-load 'ox-latex
-    (add-to-list 'org-latex-classes
-		 '("org-article"
-		   "\\include{preamble}
-                [NO-PACKAGES]
-                [NO-DEFAULT-PACKAGES]
-                [NO-EXTRA]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

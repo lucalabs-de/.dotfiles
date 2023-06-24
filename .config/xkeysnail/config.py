@@ -9,8 +9,8 @@ define_timeout(1)
 # Keybindings for Firefox/Chrome
 define_keymap(re.compile("Firefox|Google-chrome"), {
     # Ctrl+Alt+j/k to switch next/previous tab
-    K("C-M-j"): K("C-TAB"),
-    K("C-M-k"): K("C-Shift-TAB"),
+    K("C-M-j"): K("C-Shift-TAB"),
+    K("C-M-k"): K("C-TAB"),
     # Type C-j to focus to the content
     K("C-j"): K("C-f6"),
     K("C-x"): {
@@ -84,4 +84,3 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs", "URxvt"), {
         K("u"): [K("C-z"), set_mark(False)],
     }
 }, "Emacs-like keys")
-

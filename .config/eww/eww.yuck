@@ -9,12 +9,12 @@
 (defwindow indicator
            :monitor 0
            :geometry (geometry :x "20px"
-                               :y "5px"
+                               :y "0px"
                                :width "355px"
                                :height "20px"
                                :anchor "top left")
            :stacking "bg"
-           :reserve (struts :distance "50px" :side "top")
+           :reserve (struts :distance "45px" :side "top")
            :windowtype "desktop"
            :wm-ignore false
   (workspace-indicator))

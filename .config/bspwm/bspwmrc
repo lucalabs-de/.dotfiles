@@ -50,6 +50,7 @@ bspc rule -a Firefox:Toolkit state=floating #picture-in-picture
 ## Autostart ##
 # setup keymap
 setxkbmap -layout de
+setxkbmap -option caps:swapescape
 xmodmap $HOME/.Xmodmap
 
 # change default cursor
@@ -68,7 +69,7 @@ eww open indicator &
 . $HOME/.scripts/battery &
 
 # start conky on main screen
-conky --config "$HOME/.config/conky/clock.conf" -m 0 &
+# conky --config "$HOME/.config/conky/clock.conf" -m 0 &
 
 sleep 1
 

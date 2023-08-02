@@ -68,9 +68,6 @@ eww open indicator &
 # battery warning
 . $HOME/.scripts/battery &
 
-# start conky on main screen
-# conky --config "$HOME/.config/conky/clock.conf" -m 0 &
-
 sleep 1
 
 # Try to connect to external screen (also starts widgets on that screen)

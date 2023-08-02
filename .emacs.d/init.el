@@ -41,7 +41,7 @@
 ;; setup fonts
 (set-face-attribute 'default nil
 		    :family "FantasqueSansMonoNerdFontAAE Nerd Font Mono" ; nerd-patched Fantasque Sans Mono
-		    :height 160
+		    :height 120
 		    :weight 'normal
 		    :width 'normal)
 
@@ -72,8 +72,22 @@
   (forward-line -1)
   (indent-according-to-mode))
 
+
 (global-set-key [(meta n)]  'move-line-down)
 (global-set-key [(meta p)]  'move-line-up)
+
+;; switch buffers
+(defun flip-window ()
+  "Flips to the last-visited buffer in this window."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer))))
+
+
+(require 'bind-key
+         :ensure t)
+
+(bind-key* "C-x C-b" 'flip-window)
+
 
 ;; Infinite Scroll
 (setq next-line-add-newlines t)
@@ -334,7 +348,7 @@
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•")))))))
 
 (use-package org
-  :ensure t
+  :ensure f
   :hook (org-mode . org-mode-setup)
   :config
   (setq org-hide-emphasis-markers t)

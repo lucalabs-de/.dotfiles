@@ -8,5 +8,6 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'windwp/nvim-autopairs'
 end)

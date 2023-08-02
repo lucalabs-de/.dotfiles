@@ -28,13 +28,19 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 *** Screenshots
 Coming soon
 
+*** TODOs
+- *Write an install script*: It's still a pain to get these dotfiles to run. 
+- *Fix external monitor setup*: Since I'm using a high DPI notebook it's a pain to use a second (usually low-DPI) monitor. Font and UI size gets all messed up.
+- *Add a notification daemon*: I want to write my own, but I haven't gotten around to it.
+- *Finish Neovim Configuration*: I decided to switch from Emacs to Neovim.
+- *Replace ~xkeysnail~ with ~kmonad~*: Xkeysnail keybinds don't always work and are hard to debug. Maybe I'll switch from system-wide Emacs bindings to VIM bidings.
+- *Archive Emacs setup*: In case I'm happy with Neovim.
+
 ** Getting Started
 *** Packages
-On my Void system I use the following packages. Just install their dependencies/build tools as well.
+The following is a list of the most important packages I use on my Void installation. Just install their dependencies/build tools as well.
 **** From XBPS
-~picom~, ~firefox~, ~emacs-gtk3~, ~conky~, ~zathura~, ~rofi~, ~sxhkd~, ~bspwm~, ~i3lock-color~
-**** From XBPS-SRC
-~spotify~, ~discord~
+~picom~, ~firefox~, ~emacs-gtk3~, ~neovim~, ~zathura~, ~rofi~, ~sxhkd~, ~bspwm~, ~i3lock-color~
 **** From Source
 ~eww~, ~xkeysnail~, ~spicetify~
 

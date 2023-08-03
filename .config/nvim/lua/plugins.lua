@@ -10,4 +10,9 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'windwp/nvim-autopairs'
+  use 'folke/which-key.nvim'
+  use {
+	  'nvim-lualine/lualine.nvim',
+	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  } 
 end)

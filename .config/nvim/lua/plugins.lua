@@ -14,3 +14,8 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'goolord/alpha-nvim'
 end)
+
+-- TODO
+-- yanky (emacs-like killring)
+-- LSP and autocomplete
+-- LaTeX support

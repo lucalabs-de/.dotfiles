@@ -16,8 +16,9 @@ local options = {
 	tabstop = 2,
 	number = true,
 	scrolloff = 8,
+  signcolumn = "yes"
 }
 
-for k, v in pairs(options) do 
+for k, v in pairs(options) do
 	vim.opt[k] = v
 end

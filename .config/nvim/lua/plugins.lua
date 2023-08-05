@@ -13,9 +13,25 @@ return require('packer').startup(function(use)
 	use 'folke/which-key.nvim'
 	use 'nvim-lualine/lualine.nvim'
 	use 'goolord/alpha-nvim'
+  use 'gbprod/yanky.nvim'
+
+  -- LaTeX
+  use 'lervag/vimtex'
+  use 'L3MON4D3/LuaSnip'
+
+  -- LSP
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp",
+    "saadparwaiz1/cmp_luasnip"
+  }
 end)
 
 -- TODO
--- yanky (emacs-like killring)
--- LSP and autocomplete
--- LaTeX support
+-- snippet setup
+-- harpoon

@@ -9,11 +9,14 @@ return require('packer').startup(function(use)
 	}
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
-	use 'windwp/nvim-autopairs'
-	use 'folke/which-key.nvim'
 	use 'nvim-lualine/lualine.nvim'
 	use 'goolord/alpha-nvim'
+
+  -- Productivity
   use 'gbprod/yanky.nvim'
+  use 'jeffkreeftmeijer/vim-numbertoggle'
+  use 'folke/which-key.nvim'
+  use 'windwp/nvim-autopairs'
 
   -- LaTeX
   use 'lervag/vimtex'

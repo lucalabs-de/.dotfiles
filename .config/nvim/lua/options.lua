@@ -16,7 +16,8 @@ local options = {
 	tabstop = 2,
 	number = true,
 	scrolloff = 8,
-  signcolumn = "yes"
+  signcolumn = "yes",
+  relativenumber = true,
 }
 
 for k, v in pairs(options) do

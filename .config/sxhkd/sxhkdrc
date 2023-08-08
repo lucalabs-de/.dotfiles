@@ -55,7 +55,7 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{j,k,l,;,odiaeresis,ö}
+super + {_,shift + }{h,j,k,l,odiaeresis,ö}
 	bspc node -{f,s} {west,south,north,east,east,east}
 
 # focus the node for the given path jump

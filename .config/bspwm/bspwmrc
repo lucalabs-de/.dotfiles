@@ -50,14 +50,14 @@ bspc rule -a Firefox:Toolkit state=floating #picture-in-picture
 ## Autostart ##
 # setup keymap
 setxkbmap -layout de
-xmodmap $HOME/.Xmodmap
+setxkbmap custom_kb
 setxkbmap -option caps:swapescape
 
 # change default cursor
 xsetroot -cursor_name left_ptr
 
 # set backlight
-sudo light -S 50
+sudo light -S 30
 
 # picom
 picom -b --config "$HOME/.config/picom/picom.conf" &

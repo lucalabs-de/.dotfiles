@@ -41,7 +41,7 @@ Coming soon
 *** Packages
 The following is a list of the most important packages I use on my Void installation. Just install their dependencies/build tools as well.
 **** From XBPS
-~picom~ ~firefox~ ~gtk3~ ~neovim~ ~zathura~ ~rofi~ ~sxhkd~ ~bspwm~ ~i3lock-color~ ~alacritty~
+~picom~ ~firefox~ ~gtk3~ ~neovim~ ~zathura~ ~rofi~ ~sxhkd~ ~bspwm~ ~i3lock-color~ 
 **** From Source
 ~eww~ ~xkeysnail~ ~spicetify~
 

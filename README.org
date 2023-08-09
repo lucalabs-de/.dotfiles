@@ -35,12 +35,13 @@ Coming soon
 - *Finish Neovim Configuration*: I decided to switch from Emacs to Neovim.
 - *Replace xkeysnail with kmonad*: Xkeysnail keybinds don't always work and are hard to debug. Maybe I'll switch from system-wide Emacs bindings to VIM bidings.
 - *Archive Emacs setup*: In case I'm happy with Neovim.
+- *Setup i3lock screen*: A blank white screen isn't exactly aesthetic.
 
 ** Getting Started
 *** Packages
 The following is a list of the most important packages I use on my Void installation. Just install their dependencies/build tools as well.
 **** From XBPS
-~picom~ ~firefox~ ~emacs-gtk3~ ~neovim~ ~zathura~ ~rofi~ ~sxhkd~ ~bspwm~ ~i3lock-color~
+~picom~ ~firefox~ ~gtk3~ ~neovim~ ~zathura~ ~rofi~ ~sxhkd~ ~bspwm~ ~i3lock-color~ ~alacritty~
 **** From Source
 ~eww~ ~xkeysnail~ ~spicetify~
 

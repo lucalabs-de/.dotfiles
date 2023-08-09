@@ -16,7 +16,6 @@ URxvt.lineSpace:   0
 ! ----------------------------
 ! Cursor
 ! ----------------------------
-! Xcursor.theme: Bibata-Modern-Ice
 Xcursor.size: 20
 
 ! ----------------------------

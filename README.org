@@ -34,7 +34,6 @@ Coming soon
 - *Add a notification daemon*: I want to write my own, but I haven't gotten around to it.
 - *Finish Neovim Configuration*: I decided to switch from Emacs to Neovim.
 - *Replace xkeysnail with kmonad*: Xkeysnail keybinds don't always work and are hard to debug. Maybe I'll switch from system-wide Emacs bindings to VIM bidings.
-- *Archive Emacs setup*: In case I'm happy with Neovim.
 - *Setup i3lock screen*: A blank white screen isn't exactly aesthetic.
 
 ** Getting Started

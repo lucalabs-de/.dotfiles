@@ -10,32 +10,32 @@ TEMPLATE_FILE=$1
 OUTPUT_FILE=$2
 
 get_rrgb_from_x () {
-    local xkey=$1
-    rrgb=$(xrdb -query | grep "$xkey:"| awk '{print substr($NF, 2)}')
+  local xkey=$1
+  rrgb=$(xrdb -query | grep "$xkey:"| awk '{print substr($NF, 2)}')
 }
 
 get_rgb_from_x () {
-    local xkey=$1
-    rgb=$(xrdb -query | grep "$xkey:"| awk '{print $NF}')
+  local xkey=$1
+  rgb=$(xrdb -query | grep "$xkey:"| awk '{print $NF}')
 }
 
 get_tc_from_x () {
-    get_rgb_from_x "$1"
-    get_colors_from_rgb "$rgb"
-    tcprefix="\x1b[38;2;${r};${g};${b}m"
+  get_rgb_from_x "$1"
+  get_colors_from_rgb "$rgb"
+  tcprefix="\x1b[38;2;${r};${g};${b}m"
 }
 
 # based on tmux implementation
 get_ansi_from_x () {
-    get_rgb_from_x "$1"; local irgb=$rgb
+  get_rgb_from_x "$1"; local irgb=$rgb
 
     # check if color is already defined in 0-15
     for i in {0..15}; do
-	get_rgb_from_x "color$i"
-	if [ "$rgb" = "$irgb" ]; then
-	    ansi=$i
-	    return 0
-	fi
+      get_rgb_from_x "color$i"
+      if [ "$rgb" = "$irgb" ]; then
+        ansi=$i
+        return 0
+      fi
     done
 
     get_colors_from_rgb "$irgb"
@@ -49,8 +49,8 @@ get_ansi_from_x () {
 
     # return early if we hit the exact color
     if [ $cr == $r ] && [ $cg == $g ] && [ $cb == $b]; then
-	ansi=$(( (16+ (36 * $qr) + (6 * $qg) + $qb) ))
-	return 0
+      ansi=$(( (16+ (36 * $qr) + (6 * $qg) + $qb) ))
+      return 0
     fi
 
     # work out the closest grey
@@ -58,9 +58,9 @@ get_ansi_from_x () {
 
     local grey_idx=0
     if [ $grey_avg -gt 238 ]; then
-	grey_idx=23
+      grey_idx=23
     else
-	grey_idx=$(( ($grey_avg - 3) / 10 ))
+      grey_idx=$(( ($grey_avg - 3) / 10 ))
     fi
 
     local grey=$(( 8 + (10 * $grey_idx) ))
@@ -70,13 +70,13 @@ get_ansi_from_x () {
     color_dist_sq "$grey" "$grey" "$grey" "$r" "$g" "$b"
 
     if [ $dist -lt $d ]; then
-	ansi=$((232 + $grey_idx))
+      ansi=$((232 + $grey_idx))
     else
-	ansi=$(( 16 + (36 * $qr) + (6 * $qg) + $qb ))
+      ansi=$(( 16 + (36 * $qr) + (6 * $qg) + $qb ))
     fi
-}
+  }
 
-get_colors_from_rgb () {
+  get_colors_from_rgb () {
     local srgb=$1
     local rh=${srgb:1:2}
     local gh=${srgb:3:2}
@@ -84,23 +84,24 @@ get_colors_from_rgb () {
     r=$((16#$rh))
     g=$((16#$gh))
     b=$((16#$bh))
-}
+  }
 
-color_to_6cube () {
+  color_to_6cube () {
     if [ $1 -lt 48 ]; then
-	c6=0
+      c6=0
     elif [ $1 -lt 114 ]; then
-	c6=1
+      c6=1
     else
-	c6=$(( ($1 - 35) / 40 ))
+      c6=$(( ($1 - 35) / 40 ))
     fi
-}
+  }
 
-color_dist_sq () {
+  color_dist_sq () {
     dist=$(( ($1-$4)*($1-$4) + ($2-$5)*($2-$5) + ($3-$6)*($3-$6) ))
-}
+  }
 
 # create empty output file
+
 echo "" > $OUTPUT_FILE
 
 rrgb_regex="#RRGB:(\w+)#"
@@ -110,66 +111,67 @@ ansi_regex="#256(\+([0-9]+))?:(\w+)#"
 
 control_regex="#\w{2,4}(\+[0-9]+)?:\w+"
 
+IFS=''
 cat $TEMPLATE_FILE | while read -r line; do
-    # skip if the current line does not contain template strings
-    if ! [[ $line =~ $control_regex ]]; then
-	echo "$line" >> $OUTPUT_FILE
-	continue
-    fi
+  # skip if the current line does not contain template strings
+  if ! [[ $line =~ $control_regex ]]; then
+    echo "$line" >> $OUTPUT_FILE
+    continue
+  fi
 
-    ## replace with reduced rgb (no "#" at the start, template strings of form #RRGB:<key>#)
-    while read match; do
-	[ -z $match ] && continue
+  ## replace with reduced rgb (no "#" at the start, template strings of form #RRGB:<key>#)
+  while read match; do
+    [ -z $match ] && continue
 
-	[[ $match =~ $rrgb_regex ]]
-	key=${BASH_REMATCH[1]}
+    [[ $match =~ $rrgb_regex ]]
+    key=${BASH_REMATCH[1]}
 
-	get_rrgb_from_x "$key"
+    get_rrgb_from_x "$key"
 
-	line=$(echo "$line" | sed "s/$match/$rrgb/g")
-    done <<< $(echo "$line" | grep -Po "$rrgb_regex")
+    line=$(echo "$line" | sed "s/$match/$rrgb/g")
+  done <<< $(echo "$line" | grep -Po "$rrgb_regex")
 
-    ## replace with rgb (template strings of form #RGB:<key>#)
-    while read match; do
-	[ -z $match ] && continue
+  ## replace with rgb (template strings of form #RGB:<key>#)
+  while read match; do
+    [ -z $match ] && continue
 
-	[[ $match =~ $rgb_regex ]]
-	key=${BASH_REMATCH[1]}
+    [[ $match =~ $rgb_regex ]]
+    key=${BASH_REMATCH[1]}
 
-	get_rgb_from_x "$key"
+    get_rgb_from_x "$key"
 
-	line=$(echo "$line" | sed "s/$match/$rgb/g")
-    done <<< $(echo "$line" | grep -Po "$rgb_regex")
+    line=$(echo "$line" | sed "s/$match/$rgb/g")
+  done <<< $(echo "$line" | grep -Po "$rgb_regex")
 
-    ## replace with TrueColor escape codes (template strings of form #TC:<key> [text] #CT)
-    while read match; do
-	[ -z $match ] && continue
+  ## replace with TrueColor escape codes (template strings of form #TC:<key> [text] #CT)
+  while read match; do
+    [ -z $match ] && continue
 
-	[[ $match =~ $tc_regex ]]
-	key=${BASH_REMATCH[1]}
-	text=${BASH_REMATCH[2]}
+    [[ $match =~ $tc_regex ]]
+    key=${BASH_REMATCH[1]}
+    text=${BASH_REMATCH[2]}
 
-	get_tc_from_x "$key"
+    get_tc_from_x "$key"
 
-	line=$(echo "$line" | sed "s/$match/$tcprefix$text\\x1b[0m/g")
-    done <<< $(echo "$line" | grep -Po "$tc_regex")
+    line=$(echo "$line" | sed "s/$match/$tcprefix$text\\x1b[0m/g")
+  done <<< $(echo "$line" | grep -Po "$tc_regex")
 
-    ## replace with closest 256-color equivalent (#256:<key>#)
-    while read match; do
-	[ -z $match ] && continue
+ ## replace with closest 256-color equivalent (#256:<key>#)
+ while read match; do
+   [ -z $match ] && continue
 
-	[[ $match =~ $ansi_regex ]]
-	offset=${BASH_REMATCH[2]}
-	key=${BASH_REMATCH[3]}
+   [[ $match =~ $ansi_regex ]]
+   offset=${BASH_REMATCH[2]}
+   key=${BASH_REMATCH[3]}
 
-	get_ansi_from_x "$key"
+   get_ansi_from_x "$key"
 
-	if ! [ -z $offset ]; then
-	    ansi=$(( $ansi + $offset ))
-	fi
+   if ! [ -z $offset ]; then
+     ansi=$(( $ansi + $offset ))
+   fi
 
-	line=$(echo "$line" | sed "s/$match/$ansi/g")
-    done <<< $(echo "$line" | grep -Po "$ansi_regex")
+   line=$(echo "$line" | sed "s/$match/$ansi/g")
+ done <<< $(echo "$line" | grep -Po "$ansi_regex")
 
-    echo $line >> $OUTPUT_FILE
+ echo $line >> $OUTPUT_FILE
 done

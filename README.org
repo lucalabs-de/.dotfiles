@@ -18,7 +18,7 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 - *Window Manager*: bspwm
 - *Shell*: Bash
 - *Terminal*: Urxvt
-- *Widgets*: [[https://github.com/elkowar/eww][Eww]], [[https://github.com/brndnmtthws/conky][Conky]]
+- *Widgets*: [[https://github.com/elkowar/eww][Eww]]
 - *Application Launcher*: [[Rofi][Rofi]]
 - *Music Player*: Spicetify
 - *Notification Daemon*: End

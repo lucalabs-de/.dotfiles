@@ -70,3 +70,15 @@ Alternatively, we can create a new file in ~/etc/sudoers.d~ and manage the comma
   $USER $HOSTNAME = (root) NOPASSWD: /bin/light
   EOT
 #+end_src
+**** Downgrade xrvt-unicode Version
+Version 9.31 of ~rxvt-unicode~ introduced a very annoying bug regarding the terminal prompt. Due to a race condition, the prompt sometimes starts in the middle of the terminal window. This is apparently "intended behaviour" and not subject to [[http://lists.schmorp.de/pipermail/rxvt-unicode/2023q2/002661.html][change]].
+My solution is to downgrade the package to version 9.3. Unfortunately, the XBPS repository does not store old releases, so we have to build it from source. I have a separate repository that contains the necessary build config, leveraging ~xbps-src~. Just run the following commands.
+
+#+begin_src bash
+  git clone https://github.com/lucalabs-de/void-packages
+  cd void-packages
+  ./xbps-src install binary-bootstrap
+  ./xbps-src install pkg rxvt-unicode
+  xbps-install --repository hostdir/binpkgs rxvt-unicode 
+#+end_src
+

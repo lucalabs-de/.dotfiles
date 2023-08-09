@@ -19,18 +19,6 @@
            :wm-ignore false
   (workspace-indicator))
 
-(defwindow indicator-widescreen
-           :monitor 1
-           :geometry (geometry :x "20px"
-                               :y "5px"
-                               :width "355px"
-                               :height "20px"
-                               :anchor "top left")
-           :stacking "bg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "desktop"
-           :wm-ignore false
-  (workspace-indicator-widescreen))
 
 ;; Widgets
 
@@ -41,13 +29,4 @@
                              :yalign 1
                              :xalign 0
                              :class "indicator"
-                             :text "${workspace-string}")))
-
-(defwidget workspace-indicator-widescreen []
-           (box :orientation "horizontal"
-                :class "indicator-box-widescreen"
-                      (label
-                             :yalign 1
-                             :xalign 0
-                             :class "indicator-widescreen"
                              :text "${workspace-string}")))

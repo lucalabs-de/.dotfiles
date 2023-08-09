@@ -14,13 +14,3 @@ $bgcolor: rgba(0, 0, 0, 0);
     padding-bottom: 5px; // a bit hacky because the baseline of the symbols is weird and GTK doesn't support enough CSS to change that
     background-color: $bgcolor;
 }
-
-.indicator-widescreen {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.indicator-box-widescreen {
-    padding-bottom: 5px;
-    background-color: $bgcolor;
-}

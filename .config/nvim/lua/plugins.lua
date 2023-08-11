@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use 'nvim-treesitter/playground'
 	use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
 	use 'nvim-lualine/lualine.nvim'
 	use 'goolord/alpha-nvim'
@@ -33,6 +34,8 @@ return require('packer').startup(function(use)
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip"
   }
+
+  use "numToStr/Comment.nvim"
 end)
 
 -- TODO

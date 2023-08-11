@@ -1,29 +1,29 @@
 -- auto install lsp servers
-require'mason'.setup()
-require'mason-lspconfig'.setup {
+require 'mason'.setup()
+require 'mason-lspconfig'.setup {
   ensure_installed = { "lua_ls", "hls", "tsserver" },
   handlers = {
-    function (server_name)
-      require'lspconfig'[server_name].setup {}
+    function(server_name)
+      require 'lspconfig'[server_name].setup {}
     end
   }
 }
 
 -- setup lspconfig
-local lspconfig = require'lspconfig'
+local lspconfig = require 'lspconfig'
 local lsp_defaults = lspconfig.util.default_config
 
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   'force',
   lsp_defaults.capabilities,
-  require'cmp_nvim_lsp'.default_capabilities()
+  require 'cmp_nvim_lsp'.default_capabilities()
 )
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      local opts = {buffer = true}
+      local opts = { buffer = true }
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Jumps to the definition of the type symbol
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
-    -- Lists all the references 
+    -- Lists all the references
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
     -- Displays a function's signature information
@@ -63,16 +63,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+
+    -- Format using LSP formatting
+    bufmap('n', '=', '<cmd>lua vim.lsp.buf.format()<cr>')
   end
 })
 
--- setup autocomplete 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+-- setup autocomplete
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-local cmp = require'cmp'
-local luasnip = require'luasnip'
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 
-local select_opts = {behavior = cmp.SelectBehavior.Select}
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup {
   snippet = {
@@ -81,13 +84,13 @@ cmp.setup {
     end
   },
   sources = {
-    {name = 'path'},
-    {name = 'nvim_lsp', keyword_length = 1},
-    {name = 'buffer', keyword_length = 3},
-    {name = 'luasnip', keyword_length = 2},
+    { name = 'path' },
+    { name = 'nvim_lsp', keyword_length = 1 },
+    { name = 'buffer',   keyword_length = 3 },
+    { name = 'luasnip',  keyword_length = 2 },
   },
   mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select = true}),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
     ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
     ['<C-e>'] = cmp.mapping.abort(),
@@ -97,7 +100,7 @@ cmp.setup {
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
   }
 }
 
@@ -109,9 +112,9 @@ local sign = function(opts)
   })
 end
 
-sign({name = 'DiagnosticSignError', text = '✘'})
-sign({name = 'DiagnosticSignWarn', text = '▲'})
-sign({name = 'DiagnosticSignHint', text = '⚑'})
+sign({ name = 'DiagnosticSignError', text = '✘' })
+sign({ name = 'DiagnosticSignWarn', text = '▲' })
+sign({ name = 'DiagnosticSignHint', text = '⚑' })
 
 vim.diagnostic.config({
   virtual_text = false,

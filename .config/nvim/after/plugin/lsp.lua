@@ -1,10 +1,19 @@
 -- auto install lsp servers
 require 'mason'.setup()
 require 'mason-lspconfig'.setup {
-  ensure_installed = { "lua_ls", "hls", "tsserver" },
+  ensure_installed = { 'lua_ls', 'hls', 'tsserver' },
   handlers = {
     function(server_name)
       require 'lspconfig'[server_name].setup {}
+    end,
+    ['hls'] = function ()
+      require'lspconfig'['hls'].setup {
+        settings = {
+          haskell = {
+            formattingProvider = 'fourmolu'
+          }
+        }
+      }
     end
   }
 }

@@ -76,8 +76,8 @@ My solution is to downgrade the package to version 9.3. Unfortunately, the XBPS 
 #+begin_src bash
   git clone https://github.com/lucalabs-de/void-packages
   cd void-packages
-  ./xbps-src install binary-bootstrap
-  ./xbps-src install pkg rxvt-unicode
+  ./xbps-src binary-bootstrap
+  ./xbps-src pkg rxvt-unicode
   xbps-install --repository hostdir/binpkgs rxvt-unicode 
 #+end_src
 

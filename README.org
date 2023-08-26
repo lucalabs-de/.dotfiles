@@ -20,7 +20,7 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 - *Terminal*: Urxvt
 - *Widgets*: [[https://github.com/elkowar/eww][Eww]]
 - *Application Launcher*: [[Rofi][Rofi]]
-- *Notification Daemon*: [[https://github.com/lucalabs-de][End]]
+- *Notification Daemon*: [[https://github.com/lucalabs-de/end][End]]
 
 --------
 

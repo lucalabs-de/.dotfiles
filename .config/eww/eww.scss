@@ -1,6 +1,6 @@
 @import 'colors'
 
-$bgcolor: '#00000000' //rgba(0, 0, 0, 0);
+$bgcolor: rgba(0, 0, 0, 0);
 
 * {
   all: unset;
@@ -17,9 +17,22 @@ $bgcolor: '#00000000' //rgba(0, 0, 0, 0);
     background-color: $bgcolor;
 }
 
-.notification-box {
-  background-color: rgba(100, 100, 100, 1);
-  padding: 10px;
+.end-default-notification-box {
+  background-color: $end-default-bg;
+  padding: 12px;
   margin: 12px;
   border-radius: 10px;
+}
+
+.notification-title {
+  color: $end-default-fg;
+  font-weight: bold;
+  font-family: 'Fantasque Sans Mono';
+  font-size: 1em;
+}
+
+.notification-content {
+  color: $end-default-fg;
+  font-family: 'Fantasque Sans Mono';
+  font-size: .8em;
 }

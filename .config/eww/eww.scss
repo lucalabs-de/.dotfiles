@@ -1,4 +1,6 @@
-$bgcolor: rgba(0, 0, 0, 0);
+@import 'colors'
+
+$bgcolor: '#00000000' //rgba(0, 0, 0, 0);
 
 * {
   all: unset;
@@ -13,4 +15,11 @@ $bgcolor: rgba(0, 0, 0, 0);
     border-radius: 10px;
     padding-bottom: 5px; // a bit hacky because the baseline of the symbols is weird and GTK doesn't support enough CSS to change that
     background-color: $bgcolor;
+}
+
+.notification-box {
+  background-color: rgba(100, 100, 100, 1);
+  padding: 10px;
+  margin: 12px;
+  border-radius: 10px;
 }

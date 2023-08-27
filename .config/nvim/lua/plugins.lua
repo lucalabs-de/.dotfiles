@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'folke/which-key.nvim'
   use 'windwp/nvim-autopairs'
+  use 'FooSoft/vim-argwrap'
 
   -- LaTeX
   use 'lervag/vimtex'
@@ -40,4 +41,3 @@ end)
 
 -- TODO
 -- snippet setup
--- harpoon

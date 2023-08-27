@@ -1,32 +1,60 @@
 ;; Variables
 
 (deflisten workspace-string :initial "◉"
-           `scripts/print-workspaces.sh`)
-
+  `scripts/print-workspaces.sh`)
 
 ;; Windows
 
 (defwindow indicator
-           :monitor 0
-           :geometry (geometry :x "20px"
-                               :y "0px"
-                               :width "355px"
-                               :height "20px"
-                               :anchor "top left")
-           :stacking "bg"
-           :reserve (struts :distance "45px" :side "top")
-           :windowtype "desktop"
-           :wm-ignore false
+  :monitor 0
+  :geometry (geometry 
+    :x "20px"
+    :y "0px"
+    :width "355px"
+    :height "20px"
+    :anchor "top left")
+  :stacking "bg"
+  :reserve (struts :distance "45px" :side "top")
+  :windowtype "desktop"
+  :wm-ignore false
   (workspace-indicator))
 
 
 ;; Widgets
 
 (defwidget workspace-indicator []
-           (box :orientation "horizontal"
-                :class "indicator-box"
-                      (label
-                             :yalign 1
-                             :xalign 0
-                             :class "indicator"
-                             :text "${workspace-string}")))
+  (box 
+    :orientation "horizontal"
+    :class "indicator-box"
+    (label
+      :yalign 1
+      :xalign 0
+      :class "indicator"
+      :text "${workspace-string}")))
+
+;; Notifications
+(defvar end-notifications '')
+
+(defwindow notification-frame
+ :monitor 0
+ :geometry (geometry 
+   :x "0px"
+   :y "0px"
+   :width "0px"
+   :height "0px"
+   :anchor "top right")
+ :stacking "fg"
+ :windowtype "dialog"
+ :passthrough true
+ :wm-ignore true
+ (literal :content end-notifications))
+
+(defwidget end-notification 
+ [end-appname end-appicon end-summary end-body end-hints]
+ (box 
+  :orientation "horizontal"
+  :class "notification-box"
+  (label
+    :yalign 1
+    :xalign 0 
+    :text "${end-summary}: ${end-body}")))

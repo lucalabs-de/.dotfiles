@@ -148,6 +148,10 @@ super + F2
 super + F1
       sudo light -U 5
 
+# screenshots
+super + alt + Return
+  scrot --file "$HOME/Screenshots/$(data +%s).png" 
+
 # language
 super + shift + {d,r,д,р}
       setxkbmap -layout de -variant {basic,ru,basic,ru}

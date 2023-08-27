@@ -20,8 +20,7 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 - *Terminal*: Urxvt
 - *Widgets*: [[https://github.com/elkowar/eww][Eww]]
 - *Application Launcher*: [[Rofi][Rofi]]
-- *Music Player*: Spicetify
-- *Notification Daemon*: End
+- *Notification Daemon*: [[https://github.com/lucalabs-de/end][End]]
 
 --------
 
@@ -30,11 +29,9 @@ Coming soon
 
 *** TODOs
 - *Write an install script*: It's still a pain to get these dotfiles to run. 
-- *Fix external monitor setup*: Since I'm using a high DPI notebook it's a pain to use a second (usually low-DPI) monitor. Font and UI size gets all messed up.
-- *Add a notification daemon*: I want to write my own, but I haven't gotten around to it.
-- *Finish Neovim Configuration*: I decided to switch from Emacs to Neovim.
-- *Replace xkeysnail with kmonad*: Xkeysnail keybinds don't always work and are hard to debug. Maybe I'll switch from system-wide Emacs bindings to VIM bidings.
+- *Replace xkeysnail with kmonad*: Xkeysnail keybinds don't always work and are hard to debug (also Haskell is cool).
 - *Setup i3lock screen*: A blank white screen isn't exactly aesthetic.
+- *Fix external monitor setup*: Since I'm using a high DPI notebook it's a pain to use a second (usually low-DPI) monitor. Font and UI size gets all messed up.
 
 ** Getting Started
 *** Packages
@@ -42,7 +39,7 @@ The following is a list of the most important packages I use on my Void installa
 **** From XBPS
 ~picom~ ~firefox~ ~gtk3~ ~neovim~ ~zathura~ ~rofi~ ~sxhkd~ ~bspwm~ ~i3lock-color~ 
 **** From Source
-~eww~ ~xkeysnail~ ~spicetify~
+~eww~ ~end~ ~xkeysnail~
 
 *** Firefox Extensions
 I'm using my own [[https://github.com/lucalabs-de/key-jump-browser-extension][fork]] of Kenneth Sundqvist's [[https://github.com/KennethSundqvist/key-jump-browser-extension][Key Jump]] extension to allow for keyboard-only navigation in Firefox.

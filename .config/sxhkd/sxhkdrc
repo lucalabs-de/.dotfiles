@@ -150,7 +150,7 @@ super + F1
 
 # screenshots
 super + alt + Return
-  scrot --file "$HOME/Screenshots/$(data +%s).png" 
+  scrot --file "$HOME/Screenshots/$(data +%s).png"
 
 # language
 super + shift + {d,r,д,р}

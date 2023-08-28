@@ -24,15 +24,23 @@ $bgcolor: rgba(0, 0, 0, 0);
   border-radius: 10px;
 }
 
-.notification-title {
+.notification-text {
   color: $end-default-fg;
+  font-family: 'FantasqueSansM Nerd Font Mono';
+}
+
+.notification-title {
   font-weight: bold;
-  font-family: 'Fantasque Sans Mono';
   font-size: 1em;
 }
 
 .notification-content {
-  color: $end-default-fg;
-  font-family: 'Fantasque Sans Mono';
   font-size: .8em;
+}
+
+.battery-icon {
+  color: $red;
+  font-size: 2.1em;
+  margin-right: 48px;
+  margin-left: 24px;
 }

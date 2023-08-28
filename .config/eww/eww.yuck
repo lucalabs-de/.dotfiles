@@ -33,7 +33,7 @@
       :text "${workspace-string}")))
 
 ;; Notifications
-(defvar end-notifications '')
+(defvar end-notifications '(battery-widget :end-id "" :end-appname "" :end-appicon "" :end-summary "" :end-body "" :end-hints "")')
 
 (defwindow notification-frame
  :monitor 0
@@ -59,19 +59,49 @@
         (box
           :orientation "vertical"
           (label
-            :class "notification-title"    
+            :class "notification-title notification-text"    
             :yalign 1
             :xalign 0 
             :text "${end-summary}")
           (label
-            :class "notification-content"
+            :class "notification-content notification-text"
             :yalign 1
             :xalign 0
             :text "${end-body}"))'
       : '
         (label
-          :class "notification-title"    
+          :class "notification-title notification-text"    
           :yalign 1
           :xalign 0 
           :text "${end-summary}")'
     })))
+
+(defwidget battery-widget
+  [end-id end-appname end-appicon end-summary end-body end-hints]
+  (box
+    :class "end-default-notification-box"
+    :orientation "horizontal"
+    :space-evenly false
+    (label
+      :class "notification-text battery-icon"
+      :yalign 0.5
+      :xalign 0.5
+      :text "󰁺"
+    )
+    (box
+      :orientation "vertical"
+      :hexpand true
+      (label 
+        :class "notification-text notification-title"
+        :hexpand true
+        :yalign 0.5
+        :xalign 0
+        :text "Low Battery")
+      (label
+        :class "notification-text"
+        :vexpand true
+        :hexpand true
+        :yalign 0.5
+        :xalign 0
+        :text "${EWW_BATTERY["BAT0"]["capacity"]}% remainingkkk")
+      )))

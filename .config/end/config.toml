@@ -1,4 +1,5 @@
 [config]
+eww-window = "notification-frame"
 eww-content-key = "end-notifications"
 eww-default-notification-key = "end-notification"
 max-notifications = 10

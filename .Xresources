@@ -4,11 +4,11 @@
 ! Fonts
 ! ----------------------------
 
-URxvt.font:		xft:Fantasque Sans Mono:regular:size=9,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:regular:size=9
-URxvt.imFont:		xft:Fantasque Sans Mono:italic:size=9,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=9
-URxvt.boldFont:		xft:Fantasque Sans Mono:bold:size=9,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold:size=9
-URxvt.italicFont:	xft:Fantasque Sans Mono:italic:size=9,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:italic:size=9
-URxvt.boldItalicFont:	xft:Fantasque Sans Mono:bold italic:size=9,xft:FantasqueSansMonoNerdFontAAE Nerd Font Mono:bold italic:size=9
+URxvt.font:		xft:Fantasque Sans Mono:regular:size=9,xft:FantasqueSansM Nerd Font Mono:regular:size=9
+URxvt.imFont:		xft:Fantasque Sans Mono:italic:size=9,xft:FantasqueSansM Nerd Font Mono:italic:size=9
+URxvt.boldFont:		xft:Fantasque Sans Mono:bold:size=9,xft:FantasqueSansM Nerd Font Mono:bold:size=9
+URxvt.italicFont:	xft:Fantasque Sans Mono:italic:size=9,xft:FantasqueSansM Nerd Font Mono:italic:size=9
+URxvt.boldItalicFont:	xft:Fantasque Sans Mono:bold italic:size=9,xft:FantasqueSansM Nerd Font Mono:bold italic:size=9
 
 URxvt.letterSpace: 1
 URxvt.lineSpace:   0

@@ -103,5 +103,5 @@
         :hexpand true
         :yalign 0.5
         :xalign 0
-        :text "${EWW_BATTERY["BAT0"]["capacity"]}% remainingkkk")
+        :text "${EWW_BATTERY["BAT0"]["capacity"]}% remaining")
       )))

@@ -1,11 +1,9 @@
 #!/bin/bash
 
 while true; do
-    sleep 10
-    if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ] && [[ $(cat /sys/class/power_supply/BAT1/status) == "Discharging" ]]; then
-        if [ -r "$HOME/.dbus/Xdbus" ]; then
-	    . "$HOME/.dbus/Xdbus"
-        fi
-        /bin/notify-send --hint=string:x-dunst-stack-tag:battery -u critical "Battery" "Running low on battery :("
-    fi
+  sleep 20
+  if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 15 ] && [[ $(cat /sys/class/power_supply/BAT0/status) == "Discharging" ]]; then
+    # the replace-id is a bit of a hack to avoid showing multiple battery notifications
+    /bin/notify-send --hint=string:end-type:battery "Battery" --replace-id=999999
+  fi
 done

@@ -10,7 +10,7 @@ if [[ $TIME_IN_SECS -gt $NIGHT_TIME ]] || [[ $TIME_IN_SECS -lt $DAY_TIME ]]
 then
     THEME="$HOME/.themes/night/colors"
     WALLPAPER="$HOME/.themes/wallpaper-night.$FILE_TYPE"
-    /bin/notify-send --hint=string:x-dunst-stack-tag:battery -u low "Night Mode" "It's getting late..."
+    /bin/notify-send -u low "Night Mode" "It's getting late..."
 else
     THEME="$HOME/.themes/day/colors"
     WALLPAPER="$HOME/.themes/wallpaper-day.$FILE_TYPE"

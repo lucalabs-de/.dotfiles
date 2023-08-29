@@ -52,5 +52,7 @@ fi
 
 pipewire-pulse & # audio
 pipewire &
+end & # notifications
 sxhkd & # keybinds
 exec bspwm
+

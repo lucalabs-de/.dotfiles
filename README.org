@@ -25,7 +25,7 @@ Welcome! These are the dotfiles that I use in my daily-driver Void system. The g
 --------
 
 *** Screenshots
-Coming soon
+[[.screenshots/_000.png]]
 
 *** TODOs
 - *Write an install script*: It's still a pain to get these dotfiles to run. 

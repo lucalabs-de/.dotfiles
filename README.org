@@ -9,7 +9,7 @@
 #+end_src
 
 
-Welcome! These are the dotfiles that I use in my daily-driver Void system. The goal was to build a comfy, minimalist system that doesn't take me out of my workflow. Ever. For that reason I'm using Emacs Keybinds pretty much everywhere. If you don't need/want that, just don't install ~xkeysnail~.
+Welcome! These are the dotfiles that I use in my daily-driver Void system. The goal was to build a comfy, minimalist system that doesn't take me out of my workflow. For that reason, I'm using Emacs Keybinds pretty much everywhere. If you don't need/want that, simply don't install ~xkeysnail~.
 
 ------
 

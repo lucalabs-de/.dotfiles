@@ -1,7 +1,0 @@
-xkb_symbols "custom_keyboard" {
-  include "de"
-  key.type[Group1] = "EIGHT_LEVEL";
-
-  key <RCTL> {[ISO_Level5_Shift]};
-  key <AB01> {[y, Y, bar, bar, less, greater ]}; 
-};

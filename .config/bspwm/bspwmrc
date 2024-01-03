@@ -49,8 +49,7 @@ bspc rule -a Firefox:Toolkit state=floating #picture-in-picture
 
 ## Autostart ##
 # setup keymap
-setxkbmap -layout de
-setxkbmap custom_kb
+setxkbmap eu
 setxkbmap -option caps:swapescape
 
 # change default cursor

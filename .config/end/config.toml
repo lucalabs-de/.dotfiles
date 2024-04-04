@@ -7,15 +7,3 @@ notification-orientation = "v"
 timeout.urgency.low = 5 
 timeout.urgency.normal = 10
 timeout.urgency.critical = 0
-
-[[notification-type]]
-name = "battery-warning"
-eww-key = "battery-widget" 
-hint = "battery"
-timeout = 0
-
-[[notification-type]]
-name = "current-time"
-eww-key = "time-widget"
-hint = "time"
-timeout = 3

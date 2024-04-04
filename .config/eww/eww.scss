@@ -20,6 +20,7 @@ $bgcolor: rgba(0, 0, 0, 0);
 .end-default-notification-box {
   background-color: $end-default-bg;
   padding: 12px;
+  padding-left: 8px;
   margin: 12px;
   border-radius: 10px;
 }
@@ -36,6 +37,10 @@ $bgcolor: rgba(0, 0, 0, 0);
 
 .notification-content {
   font-size: .8em;
+}
+
+.content-box {
+  margin-left: 12px;
 }
 
 .battery-icon {

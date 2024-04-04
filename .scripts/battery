@@ -4,6 +4,6 @@ while true; do
   sleep 20
   if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 15 ] && [[ $(cat /sys/class/power_supply/BAT0/status) == "Discharging" ]]; then
     # the replace-id is a bit of a hack to avoid showing multiple battery notifications
-    /bin/notify-send --hint=string:end-type:battery "Battery" --replace-id=999999
+    /bin/notify-send --hint=string:type:battery "Battery" --replace-id=999999 --urgency=critical
   fi
 done

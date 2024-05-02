@@ -9,7 +9,7 @@
   :monitor 0
   :geometry (geometry 
     :x "20px"
-    :y "0px"
+    :y "-5px"
     :width "355px"
     :height "20px"
     :anchor "top left")

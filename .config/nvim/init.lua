@@ -1,5 +1,5 @@
+require("plugins")
 require("options")
 require("remap")
-require("plugins")
 require("colors")
 require("funcs")

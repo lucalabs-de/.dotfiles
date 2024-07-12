@@ -38,6 +38,12 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+super + l
+  i3lock
+
+super + shift + s
+  scrot -s
+
 #
 # state/flags
 #
@@ -125,15 +131,15 @@ super + {Left,Down,Up,Right}
 #
 
 # increase volume
-super + F12
+super + F8
       	pamixer -i 5
 
 # lower volume
-super + F11
+super + F7
   	pamixer -d 5
 
 # toggle mute
-super + F10
+super + F6
       	pamixer -t
 
 #

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # set wallpaper
-. $HOME/.scripts/refresh-theme
+feh --bg-fill "$HOME/.themes/wallpaper.jpg"
 
 # Set colors
 xrdb ~/.Xresources
-xrdb -merge $THEME
+xrdb -merge ~/.themes/colors
 
 # fill config templates with theme colors
 . $HOME/.scripts/setup-configs

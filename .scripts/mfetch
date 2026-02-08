@@ -1,0 +1,45 @@
+#!/bin/bash
+# Stolen from https://github.com/depsterr/mfetch
+# Adapted by lucalabs-de
+
+# read system info
+read -r host < /proc/sys/kernel/hostname
+read -r kernel < /proc/sys/kernel/osrelease
+. /etc/os-release
+
+wm=river
+
+# Colors and palette method stolen from dylanaraps pftech
+# https://github.com/dylanaraps/pfetch
+c0='[0m';
+c1='[91m'; c2='[92m'
+c3='[93m'; c4='[94m'
+c5='[95m'; c6='[96m'
+c7='[97m'; c8='[98m'
+cb1='[31m'; cb2='[32m'
+cb3='[33m'; cb4='[34m'
+cb5='[35m'; cb6='[36m'
+cb7='[37m'; cb8='[38m'
+palette="[7m$c1 $cb1 $c2 $cb2 $c3 $cb3 $c4 $cb4 $c5 $cb5 $c6 $cb6 [m"
+
+cursorup=$(tput cuu1)
+image=$(cat "$HOME/.config/mfetch/painting-small.six") # should be around 250px wide
+text_height=8
+padding=$(printf '%*s' "30" '')
+
+# print
+printf "%s\n" "
+${padding}${c0}${c6}${USER}${c0}@${c6}${host}
+${padding}${c0}${c6}os${c0}      ${PRETTY_NAME}
+${padding}${c0}${ARTR3}${c6}kernel${c0}  ${kernel}
+${padding}${c0}${c6}shell${c0}   ${SHELL##*/}
+${padding}${c0}${c6}wm${c0}      ${wm}
+
+${padding}${palette}
+"
+
+for (( c=0; c<$text_height; c++ )); do
+  printf "${cursorup}"
+done
+
+printf "%s\n\n" "${image}"

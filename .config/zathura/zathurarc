@@ -1,0 +1,14 @@
+set recolor true
+set default-bg '#f2ecbc'
+set default-fg '#545464'
+set recolor-lightcolor '#f2ecbc'
+set recolor-darkcolor '#545464'
+set statusbar-bg '#e7dba0'
+set statusbar-fg '#545464'
+set inputbar-bg '#f2ecbc'
+set inputbar-fg '#545464'
+set font 'VictorMono NFM normal 12'
+map <A-\<> goto top
+map <A-\>> goto bottom
+map <C-n> scroll down
+map <C-p> scroll up

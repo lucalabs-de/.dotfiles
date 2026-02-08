@@ -1,0 +1,48 @@
+#!/bin/bash
+
+swaybg -i $HOME/.wallpaper -m fill &
+
+riverctl keyboard-layout eu
+riverctl hide-cursor when-typing enabled
+riverctl hide-cursor timeout 5000
+riverctl default-attach-mode bottom
+
+# Style
+riverctl border-width 0
+
+# Keybinds
+riverctl map normal Super Return spawn foot
+riverctl map normal Super Space spawn "$HOME/.config/rofi/launcher.sh"
+riverctl map normal Super F5 spawn "light -U 5"
+riverctl map normal Super F6 spawn "light -A 5"
+
+riverctl map normal Super W close
+riverctl map normal Super T toggle-float
+riverctl map normal Super F toggle-fullscreen
+
+riverctl map normal Super H focus-view left
+riverctl map normal Super J focus-view down
+riverctl map normal Super K focus-view up
+riverctl map normal Super L focus-view right
+
+riverctl map normal Super+Shift H swap left
+riverctl map normal Super+Shift J swap down
+riverctl map normal Super+Shift K swap up
+riverctl map normal Super+Shift L swap right
+
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+for i in $(seq 1 9); do
+	tags=$((1 << (i-1)))
+	riverctl map normal Super "$i" set-focused-tags $tags
+	riverctl map normal Super+Shift "$i" set-view-tags $tags
+done
+
+# Start programs
+riverctl default-layout rivertile 
+rivertile -view-padding 6 -outer-padding 6 &
+
+eww open indicator &
+light -S 30
+

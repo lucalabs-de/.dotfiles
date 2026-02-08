@@ -1,0 +1,5 @@
+require("plugins")
+require("options")
+require("remap")
+require("colors")
+require("funcs")

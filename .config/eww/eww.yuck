@@ -1,8 +1,10 @@
 ;; Variables
 (deflisten river-state :initial ""
   `ristate -t -vt`)
-(defvar jqt 
-  ".viewstag.BOE + [ .tags.BOE[0] | tonumber ] | unique | sort | [range(1; (. | max) + 1) as $r | if any(.[]; . == $r) then $r else 0 end]")
+(defvar jqt
+  ".viewstag.CaliforniaInstituteofTechnology + [ .tags.CaliforniaInstituteofTechnology[0] | tonumber ] | unique | sort | [range(1; (. | max) + 1) as $r | if any(.[]; . == $r) then $r else 0 end]")
+(defvar jqt-ws
+  ".viewstag.BNQ + [ .tags.BNQ[0] | tonumber ] | unique | sort | [range(1; (. | max) + 1) as $r | if any(.[]; . == $r) then $r else 0 end]")
 
 ;; Windows
 (defwindow indicator
@@ -12,6 +14,14 @@
   :stacking "bottom"
   :exclusive true
   (workspace-indicator))
+
+(defwindow indicator-ss
+  :monitor 1
+  :geometry (geometry 
+    :anchor "bottom center")
+  :stacking "bottom"
+  :exclusive true
+  (workspace-indicator-ss))
 
 
 ;; Widgets
@@ -25,7 +35,22 @@
 	    (label 
         :class "indicator-text"
         :text 
-		    {entry == river-state.tags.BOE[0]
+		    {entry == river-state.tags.CaliforniaInstituteofTechnology[0]
+			    ? "▣" 
+			    : entry == 0
+				    ? "□" : "▨" }))))
+
+(defwidget workspace-indicator-ss []
+  (box 
+    :orientation "horizontal"
+    :space-evenly false
+    :spacing 24
+    :class "indicator-box"
+    (for entry in {jq(river-state, jqt-ws)}
+	    (label 
+        :class "indicator-text"
+        :text 
+		    {entry == river-state.tags.BNQ[0]
 			    ? "▣" 
 			    : entry == 0
 				    ? "□" : "▨" }))))

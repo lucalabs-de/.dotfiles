@@ -13,8 +13,8 @@ riverctl border-width 0
 # Keybinds
 riverctl map normal Super Return spawn foot
 riverctl map normal Super Space spawn "$HOME/.config/rofi/launcher.sh"
-riverctl map normal Super F5 spawn "light -U 5"
-riverctl map normal Super F6 spawn "light -A 5"
+riverctl map normal Super F1 spawn "light -U 5"
+riverctl map normal Super F2 spawn "light -A 5"
 
 riverctl map normal Super W close
 riverctl map normal Super T toggle-float
@@ -30,6 +30,8 @@ riverctl map normal Super+Shift J swap down
 riverctl map normal Super+Shift K swap up
 riverctl map normal Super+Shift L swap right
 
+riverctl map normal Super Period focus-output next
+
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
@@ -43,6 +45,8 @@ done
 riverctl default-layout rivertile 
 rivertile -view-padding 6 -outer-padding 6 &
 
+way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
 eww open indicator &
-light -S 30
+eww open indicator-ws &
+light -S 20
 

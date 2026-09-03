@@ -7,7 +7,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "VictorMono NFM Semibold 12";
+    font:                        "VictorMono NFM Semibold 15";
     background:                  #e7dba0;
     background-alt:              #e7dba0;
     foreground:                  #43436c;
@@ -24,7 +24,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       400px;
+    width:                       600px;
     x-offset:                    20px;
     y-offset:                    0px;
 

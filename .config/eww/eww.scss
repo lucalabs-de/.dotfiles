@@ -6,13 +6,13 @@ $bgcolor: rgba(0, 0, 0, 0);
 
 .indicator-text {
     font-family: Victor Mono;
-    font-size: 2.8em;
+    font-size: 4em;
     color: #e7dba0 // #f2ecbc; //#c9cbd1;
 }
 
 .indicator-box {
-    margin-top: -18px;
-    margin-bottom: -4px;
+    margin-top: -24px;
+    margin-bottom: -8px;
     border-radius: 10px;
     background-color: $bgcolor;
 }
